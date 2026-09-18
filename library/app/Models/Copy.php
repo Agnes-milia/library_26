@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['title', 'author', 'pieces'])]
-class Book extends Model
+#[Fillable(['book_id', 'user_id'])]
+class Copy extends Model
 {
-    /** @use HasFactory<\Database\Factories\BookFactory> */
+    /** @use HasFactory<\Database\Factories\CopyFactory> */
     use HasFactory;
 }
