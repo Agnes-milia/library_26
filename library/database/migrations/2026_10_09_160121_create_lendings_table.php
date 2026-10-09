@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('copies', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('book_id')->constrained();
-            $table->boolean("hardcover")->default(0);
-            $table->year("publication");
-            $table->smallInteger("status")->default(0);
+        Schema::create('lendings', function (Blueprint $table) {
+            $table->primary(['user_id', "copy_id", "start"]);
+            $table->foreignId("user_id")->constrained();
+            $table->foreignId("copy_id")->constrained();
+            $table->date("start")->default(now());
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('copies');
+        Schema::dropIfExists('lendings');
     }
 };
