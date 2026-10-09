@@ -30,10 +30,10 @@ class LendingController extends Controller
     {
         $record = Lending::where("user_id", $user_id)
         ->where("copy_id", $copy_id)
-        ->where("start", $start)
-        ->get();
-        return $record[0];
-        //->findOrFail();
+        ->where("start", $start);
+        /* ->get();
+        return $record[0]; */
+        return $record->firstOrFail();
     }
 
     /**
